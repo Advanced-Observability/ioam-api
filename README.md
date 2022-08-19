@@ -1,9 +1,12 @@
 # IOAM API with Protocol Buffers v3
 
-**This version is specific to Cross-Layer Telemetry.**
+**Watch out!** This is a specific version to work inside the [Cross-Layer Telemetry](https://github.com/Advanced-Observability/cross-layer-telemetry) (CLT) project.
 
-IOAM API with Protocol Buffers v3, see [ioam_api.proto](./ioam_api.proto). It is based on the [Data Fields for In-situ OAM](https://tools.ietf.org/html/draft-ietf-ippm-ioam-data) draft.
+IOAM API with Protocol Buffers v3, see [ioam_api.proto](./ioam_api.proto). It is based on [RFC 9197](https://datatracker.ietf.org/doc/rfc9197/).
 
-This API is currently used by the [IOAM agent for Python](https://github.com/Advanced-Observability/ioam-agent-python/tree/clt) and is available for any agent/collector requirements.
+This API is available for any agent/collector requirements and is currently used
+by:
+- [the IOAM Agent (Python)](https://github.com/Advanced-Observability/ioam-agent-python/tree/clt)
+- [the IOAM Collector for Jaeger (Golang)](https://github.com/Advanced-Observability/ioam-collector-go-jaeger)
 
-Right now, only the IOAM Trace Option is supported.
+Right now, only the IOAM (Pre-allocated) Trace Option-Type is supported.
