@@ -334,7 +334,7 @@ const file_ioam_api_proto_rawDesc = "" +
 	"\x11NamespaceDataWide\x18\x0f \x01(\fR\x11NamespaceDataWide\x12\"\n" +
 	"\x03OSS\x18\x10 \x01(\v2\x10.ioam_api.OpaqueR\x03OSS2H\n" +
 	"\vIOAMService\x129\n" +
-	"\x06Report\x12\x13.ioam_api.IOAMTrace\x1a\x16.google.protobuf.Empty\"\x00(\x01B,Z*github.com/Advanced-Observability/ioam-apib\x06proto3"
+	"\x06Report\x12\x13.ioam_api.IOAMTrace\x1a\x16.google.protobuf.Empty\"\x00(\x01B5Z3github.com/Advanced-Observability/ioam-api;ioam_apib\x06proto3"
 
 var (
 	file_ioam_api_proto_rawDescOnce sync.Once
