@@ -3,14 +3,14 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 package ioam_api;
 
-option go_package = "github.com/Advanced-Observability/ioam-api";
+option go_package = "github.com/Advanced-Observability/ioam-api/pkg/ioamapi;ioamapi";
 
-/* 
+/*
  * IOAM Service
  */
 service IOAMService {
 	/* Report an IOAM Trace */
-	rpc Report (IOAMTrace) returns (google.protobuf.Empty) {}
+	rpc Report (stream IOAMTrace) returns (google.protobuf.Empty) {}
 }
 
 /*
