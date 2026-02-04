@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 package ioam_api;
 
-option go_package = "github.com/Advanced-Observability/ioam-api/pkg/ioamapi;ioamapi";
+option go_package = "github.com/Advanced-Observability/ioam-api";
 
 /*
  * IOAM Service

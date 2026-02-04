@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.0
 // - protoc             v6.33.1
-// source: proto/ioam_api.proto
+// source: ioam_api.proto
 
-package ioamapi
+package ioam_api
 
 import (
 	context "context"
@@ -117,5 +117,5 @@ var IOAMService_ServiceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 	},
-	Metadata: "proto/ioam_api.proto",
+	Metadata: "ioam_api.proto",
 }
