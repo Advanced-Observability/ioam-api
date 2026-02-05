@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 package ioam_api;
 
-option go_package = "github.com/Advanced-Observability/ioam-api";
+option go_package = "github.com/Advanced-Observability/ioam-api/clt";
 
 /*
  * IOAM Service
@@ -16,11 +16,14 @@ service IOAMService {
 /*
  * IOAM Trace
  */
-message IOAMTrace {
-	uint32			    NamespaceId	= 1;
-	fixed32		        BitField	= 2;
-	repeated IOAMNode	Nodes		= 3;
-}
+ message IOAMTrace {
+	fixed64		TraceId_High	= 1;
+	fixed64		TraceId_Low	    = 2;
+	fixed64		SpanId		    = 3;
+	uint32		NamespaceId	    = 4;
+	fixed32		BitField	    = 5;
+	repeated IOAMNode	Nodes   = 6;
+ }
 
 /*
  * Opaque State Snapshot

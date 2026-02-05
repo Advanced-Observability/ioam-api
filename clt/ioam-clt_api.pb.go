@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v6.33.1
-// source: ioam_api.proto
+// source: ioam-clt_api.proto
 
-package ioam_api
+package clt
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -25,16 +25,19 @@ const (
 // IOAM Trace
 type IOAMTrace struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	NamespaceId   uint32                 `protobuf:"varint,1,opt,name=NamespaceId,proto3" json:"NamespaceId,omitempty"`
-	BitField      uint32                 `protobuf:"fixed32,2,opt,name=BitField,proto3" json:"BitField,omitempty"`
-	Nodes         []*IOAMNode            `protobuf:"bytes,3,rep,name=Nodes,proto3" json:"Nodes,omitempty"`
+	TraceId_High  uint64                 `protobuf:"fixed64,1,opt,name=TraceId_High,json=TraceIdHigh,proto3" json:"TraceId_High,omitempty"`
+	TraceId_Low   uint64                 `protobuf:"fixed64,2,opt,name=TraceId_Low,json=TraceIdLow,proto3" json:"TraceId_Low,omitempty"`
+	SpanId        uint64                 `protobuf:"fixed64,3,opt,name=SpanId,proto3" json:"SpanId,omitempty"`
+	NamespaceId   uint32                 `protobuf:"varint,4,opt,name=NamespaceId,proto3" json:"NamespaceId,omitempty"`
+	BitField      uint32                 `protobuf:"fixed32,5,opt,name=BitField,proto3" json:"BitField,omitempty"`
+	Nodes         []*IOAMNode            `protobuf:"bytes,6,rep,name=Nodes,proto3" json:"Nodes,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *IOAMTrace) Reset() {
 	*x = IOAMTrace{}
-	mi := &file_ioam_api_proto_msgTypes[0]
+	mi := &file_ioam_clt_api_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -46,7 +49,7 @@ func (x *IOAMTrace) String() string {
 func (*IOAMTrace) ProtoMessage() {}
 
 func (x *IOAMTrace) ProtoReflect() protoreflect.Message {
-	mi := &file_ioam_api_proto_msgTypes[0]
+	mi := &file_ioam_clt_api_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +62,28 @@ func (x *IOAMTrace) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IOAMTrace.ProtoReflect.Descriptor instead.
 func (*IOAMTrace) Descriptor() ([]byte, []int) {
-	return file_ioam_api_proto_rawDescGZIP(), []int{0}
+	return file_ioam_clt_api_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *IOAMTrace) GetTraceId_High() uint64 {
+	if x != nil {
+		return x.TraceId_High
+	}
+	return 0
+}
+
+func (x *IOAMTrace) GetTraceId_Low() uint64 {
+	if x != nil {
+		return x.TraceId_Low
+	}
+	return 0
+}
+
+func (x *IOAMTrace) GetSpanId() uint64 {
+	if x != nil {
+		return x.SpanId
+	}
+	return 0
 }
 
 func (x *IOAMTrace) GetNamespaceId() uint32 {
@@ -94,7 +118,7 @@ type Opaque struct {
 
 func (x *Opaque) Reset() {
 	*x = Opaque{}
-	mi := &file_ioam_api_proto_msgTypes[1]
+	mi := &file_ioam_clt_api_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -106,7 +130,7 @@ func (x *Opaque) String() string {
 func (*Opaque) ProtoMessage() {}
 
 func (x *Opaque) ProtoReflect() protoreflect.Message {
-	mi := &file_ioam_api_proto_msgTypes[1]
+	mi := &file_ioam_clt_api_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -119,7 +143,7 @@ func (x *Opaque) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Opaque.ProtoReflect.Descriptor instead.
 func (*Opaque) Descriptor() ([]byte, []int) {
-	return file_ioam_api_proto_rawDescGZIP(), []int{1}
+	return file_ioam_clt_api_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Opaque) GetSchemaId() uint32 {
@@ -161,7 +185,7 @@ type IOAMNode struct {
 
 func (x *IOAMNode) Reset() {
 	*x = IOAMNode{}
-	mi := &file_ioam_api_proto_msgTypes[2]
+	mi := &file_ioam_clt_api_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -173,7 +197,7 @@ func (x *IOAMNode) String() string {
 func (*IOAMNode) ProtoMessage() {}
 
 func (x *IOAMNode) ProtoReflect() protoreflect.Message {
-	mi := &file_ioam_api_proto_msgTypes[2]
+	mi := &file_ioam_clt_api_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -186,7 +210,7 @@ func (x *IOAMNode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IOAMNode.ProtoReflect.Descriptor instead.
 func (*IOAMNode) Descriptor() ([]byte, []int) {
-	return file_ioam_api_proto_rawDescGZIP(), []int{2}
+	return file_ioam_clt_api_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *IOAMNode) GetHopLimit() uint32 {
@@ -301,15 +325,19 @@ func (x *IOAMNode) GetOSS() *Opaque {
 	return nil
 }
 
-var File_ioam_api_proto protoreflect.FileDescriptor
+var File_ioam_clt_api_proto protoreflect.FileDescriptor
 
-const file_ioam_api_proto_rawDesc = "" +
+const file_ioam_clt_api_proto_rawDesc = "" +
 	"\n" +
-	"\x0eioam_api.proto\x12\bioam_api\x1a\x1bgoogle/protobuf/empty.proto\"s\n" +
-	"\tIOAMTrace\x12 \n" +
-	"\vNamespaceId\x18\x01 \x01(\rR\vNamespaceId\x12\x1a\n" +
-	"\bBitField\x18\x02 \x01(\aR\bBitField\x12(\n" +
-	"\x05Nodes\x18\x03 \x03(\v2\x12.ioam_api.IOAMNodeR\x05Nodes\"8\n" +
+	"\x12ioam-clt_api.proto\x12\bioam_api\x1a\x1bgoogle/protobuf/empty.proto\"\xcf\x01\n" +
+	"\tIOAMTrace\x12!\n" +
+	"\fTraceId_High\x18\x01 \x01(\x06R\vTraceIdHigh\x12\x1f\n" +
+	"\vTraceId_Low\x18\x02 \x01(\x06R\n" +
+	"TraceIdLow\x12\x16\n" +
+	"\x06SpanId\x18\x03 \x01(\x06R\x06SpanId\x12 \n" +
+	"\vNamespaceId\x18\x04 \x01(\rR\vNamespaceId\x12\x1a\n" +
+	"\bBitField\x18\x05 \x01(\aR\bBitField\x12(\n" +
+	"\x05Nodes\x18\x06 \x03(\v2\x12.ioam_api.IOAMNodeR\x05Nodes\"8\n" +
 	"\x06Opaque\x12\x1a\n" +
 	"\bSchemaId\x18\x01 \x01(\rR\bSchemaId\x12\x12\n" +
 	"\x04Data\x18\x02 \x01(\fR\x04Data\"\xa0\x04\n" +
@@ -334,28 +362,28 @@ const file_ioam_api_proto_rawDesc = "" +
 	"\x11NamespaceDataWide\x18\x0f \x01(\fR\x11NamespaceDataWide\x12\"\n" +
 	"\x03OSS\x18\x10 \x01(\v2\x10.ioam_api.OpaqueR\x03OSS2H\n" +
 	"\vIOAMService\x129\n" +
-	"\x06Report\x12\x13.ioam_api.IOAMTrace\x1a\x16.google.protobuf.Empty\"\x00(\x01B,Z*github.com/Advanced-Observability/ioam-apib\x06proto3"
+	"\x06Report\x12\x13.ioam_api.IOAMTrace\x1a\x16.google.protobuf.Empty\"\x00(\x01B0Z.github.com/Advanced-Observability/ioam-api/cltb\x06proto3"
 
 var (
-	file_ioam_api_proto_rawDescOnce sync.Once
-	file_ioam_api_proto_rawDescData []byte
+	file_ioam_clt_api_proto_rawDescOnce sync.Once
+	file_ioam_clt_api_proto_rawDescData []byte
 )
 
-func file_ioam_api_proto_rawDescGZIP() []byte {
-	file_ioam_api_proto_rawDescOnce.Do(func() {
-		file_ioam_api_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_ioam_api_proto_rawDesc), len(file_ioam_api_proto_rawDesc)))
+func file_ioam_clt_api_proto_rawDescGZIP() []byte {
+	file_ioam_clt_api_proto_rawDescOnce.Do(func() {
+		file_ioam_clt_api_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_ioam_clt_api_proto_rawDesc), len(file_ioam_clt_api_proto_rawDesc)))
 	})
-	return file_ioam_api_proto_rawDescData
+	return file_ioam_clt_api_proto_rawDescData
 }
 
-var file_ioam_api_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_ioam_api_proto_goTypes = []any{
+var file_ioam_clt_api_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_ioam_clt_api_proto_goTypes = []any{
 	(*IOAMTrace)(nil),     // 0: ioam_api.IOAMTrace
 	(*Opaque)(nil),        // 1: ioam_api.Opaque
 	(*IOAMNode)(nil),      // 2: ioam_api.IOAMNode
 	(*emptypb.Empty)(nil), // 3: google.protobuf.Empty
 }
-var file_ioam_api_proto_depIdxs = []int32{
+var file_ioam_clt_api_proto_depIdxs = []int32{
 	2, // 0: ioam_api.IOAMTrace.Nodes:type_name -> ioam_api.IOAMNode
 	1, // 1: ioam_api.IOAMNode.OSS:type_name -> ioam_api.Opaque
 	0, // 2: ioam_api.IOAMService.Report:input_type -> ioam_api.IOAMTrace
@@ -367,26 +395,26 @@ var file_ioam_api_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_ioam_api_proto_init() }
-func file_ioam_api_proto_init() {
-	if File_ioam_api_proto != nil {
+func init() { file_ioam_clt_api_proto_init() }
+func file_ioam_clt_api_proto_init() {
+	if File_ioam_clt_api_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ioam_api_proto_rawDesc), len(file_ioam_api_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ioam_clt_api_proto_rawDesc), len(file_ioam_clt_api_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_ioam_api_proto_goTypes,
-		DependencyIndexes: file_ioam_api_proto_depIdxs,
-		MessageInfos:      file_ioam_api_proto_msgTypes,
+		GoTypes:           file_ioam_clt_api_proto_goTypes,
+		DependencyIndexes: file_ioam_clt_api_proto_depIdxs,
+		MessageInfos:      file_ioam_clt_api_proto_msgTypes,
 	}.Build()
-	File_ioam_api_proto = out.File
-	file_ioam_api_proto_goTypes = nil
-	file_ioam_api_proto_depIdxs = nil
+	File_ioam_clt_api_proto = out.File
+	file_ioam_clt_api_proto_goTypes = nil
+	file_ioam_clt_api_proto_depIdxs = nil
 }
